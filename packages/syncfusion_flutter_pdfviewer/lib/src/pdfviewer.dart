@@ -1913,12 +1913,11 @@ class SfPdfViewerState extends State<SfPdfViewer> with WidgetsBindingObserver {
       if (widget.pageLayoutMode == PdfPageLayoutMode.single) {
         viewportRenderBox =
             // ignore: avoid_as
-            (_singlePageViewKey.currentContext!.findRenderObject())!
-                as RenderBox;
+            _singlePageViewKey.currentContext!.findRenderObject()! as RenderBox;
       } else {
         viewportRenderBox =
             // ignore: avoid_as
-            (_pdfScrollableStateKey.currentContext!.findRenderObject())!
+            _pdfScrollableStateKey.currentContext!.findRenderObject()!
                 as RenderBox;
       }
       final Offset position = viewportRenderBox.localToGlobal(Offset.zero);
@@ -1961,7 +1960,7 @@ class SfPdfViewerState extends State<SfPdfViewer> with WidgetsBindingObserver {
         _originalWidth != null &&
         _originalHeight != null;
     _pdfDimension =
-        (_childKey.currentContext?.findRenderObject()?.paintBounds.size) ??
+        _childKey.currentContext?.findRenderObject()?.paintBounds.size ??
             Size.zero;
     return isPdfLoaded
         ? Listener(
@@ -4672,6 +4671,7 @@ class PdfWidget {
     required this.pageNumber,
     required this.bounds,
     this.ignoreBoundsSize = false,
+    this.webZoom = 1,
     required this.child,
   });
 
@@ -4683,6 +4683,9 @@ class PdfWidget {
 
   ///Will use real widget size
   final bool ignoreBoundsSize;
+
+  ///Web zoom
+  final double webZoom;
 
   ///child
   final Widget child;
@@ -4696,7 +4699,6 @@ class PdfWidget {
     const double targetPtWidth = 612;
     const double webMmPerPt = 0.3431372549;
     const double pxPerMm = 3.78;
-    const double defaultWebZoom = 1.15;
 
     final Size normalizedPdfPageSizeInPt = Size(
       targetPtWidth,
@@ -4704,7 +4706,7 @@ class PdfWidget {
     );
 
     final Size pdfPageSizeInMm = normalizedPdfPageSizeInPt * webMmPerPt;
-    final Size webPdfPageSize = pdfPageSizeInMm * defaultWebZoom * pxPerMm;
+    final Size webPdfPageSize = pdfPageSizeInMm * webZoom * pxPerMm;
 
     final double widthScalingFactor = pageSize.width / webPdfPageSize.width;
     final double heightScalingFactor = pageSize.height / webPdfPageSize.height;
