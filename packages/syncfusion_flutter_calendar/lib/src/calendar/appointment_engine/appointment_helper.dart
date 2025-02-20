@@ -1359,7 +1359,9 @@ class AppointmentHelper {
 
   static void _updateTimeForInvalidEndTime(
       CalendarAppointment appointment, String? scheduleTimeZone) {
-    if (appointment.actualEndTime.isBefore(appointment.actualStartTime) &&
+    // allow invalid dates
+    if (false &&
+        appointment.actualEndTime.isBefore(appointment.actualStartTime) &&
         !appointment.isAllDay) {
       appointment.endTime = convertTimeToAppointmentTimeZone(
           addDuration(appointment.actualStartTime, const Duration(minutes: 30)),
