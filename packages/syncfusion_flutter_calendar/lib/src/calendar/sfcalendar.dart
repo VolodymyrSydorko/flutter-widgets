@@ -11264,17 +11264,13 @@ class _AgendaDateTimePainter extends CustomPainter {
         dayTextStyle = agendaDayThemeTextStyle.merge(
             scheduleViewSettings!.dayHeaderSettings.dayTextStyle ??
                 TextStyle(
-                    color: calendarTheme.agendaDayTextStyle != null
-                        ? calendarTheme.agendaDayTextStyle!.color
-                        : null,
+                    color: calendarTheme.agendaDayTextStyle?.color,
                     fontSize: 9,
                     fontWeight: FontWeight.w500));
         dateTextStyle = agendaDateThemeTextStyle.merge(
             scheduleViewSettings!.dayHeaderSettings.dateTextStyle ??
                 TextStyle(
-                    color: calendarTheme.agendaDateTextStyle != null
-                        ? calendarTheme.agendaDateTextStyle!.color
-                        : null,
+                    color: calendarTheme.agendaDateTextStyle?.color,
                     fontSize: 18,
                     fontWeight: FontWeight.normal));
       }
