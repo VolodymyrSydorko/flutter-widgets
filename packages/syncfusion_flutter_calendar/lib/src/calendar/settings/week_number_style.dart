@@ -81,7 +81,7 @@ class WeekNumberStyle with Diagnosticable {
   final TextStyle? textStyle;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
@@ -106,9 +106,6 @@ class WeekNumberStyle with Diagnosticable {
 
   @override
   int get hashCode {
-    return Object.hash(
-      backgroundColor,
-      textStyle,
-    );
+    return Object.hash(backgroundColor, textStyle);
   }
 }

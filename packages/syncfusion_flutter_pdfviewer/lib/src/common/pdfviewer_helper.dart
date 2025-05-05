@@ -6,7 +6,7 @@ import 'package:syncfusion_flutter_pdf/pdf.dart';
 
 import '../control/pdftextline.dart';
 import 'mobile_helper.dart'
-    if (dart.library.html) 'package:syncfusion_flutter_pdfviewer/src/common/web_helper.dart'
+    if (dart.library.js_interop) 'package:syncfusion_flutter_pdfviewer/src/common/web_helper.dart'
     as helper;
 
 /// Indicates whether the current environment is running in Desktop
@@ -14,6 +14,15 @@ bool kIsDesktop = kIsWeb || Platform.isMacOS || Platform.isWindows;
 
 /// Indicates whether the current environment is running in macOS
 bool kIsMacOS = helper.getPlatformType() == 'macos';
+
+/// Indicates the default padding for checkbox and radio button form fields on mobile platforms.
+const double kFormFieldSelectionPadding = 3.0;
+
+/// Indicates the default width of signature pad.
+const double kSignaturePadWidth = 306;
+
+/// Indicates the default height of signature pad.
+const double kSignaturePadHeight = 172;
 
 /// TextSelectionHelper for storing information of text selection.
 class TextSelectionHelper {
@@ -91,6 +100,34 @@ class TextSelectionHelper {
 
   /// Gets the selected text lines.
   List<PdfTextLine> selectedTextLines = <PdfTextLine>[];
+
+  void reset() {
+    selectionEnabled = false;
+    mouseSelectionEnabled = false;
+    firstSelectedGlyph = null;
+    viewId = null;
+    cursorPageNumber = null;
+    globalSelectedRegion = null;
+    copiedText = null;
+    startBubbleX = null;
+    startBubbleY = null;
+    endBubbleX = null;
+    endBubbleY = null;
+    heightPercentage = null;
+    textLines = null;
+    cursorTextLines = null;
+    startBubbleLine = null;
+    endBubbleLine = null;
+    historyEntry = null;
+    isCursorExit = false;
+    isCursorReachedTop = false;
+    initialScrollOffset = 0;
+    finalScrollOffset = 0;
+    enableTapSelection = false;
+    startIndex = 0;
+    endIndex = 0;
+    selectedTextLines.clear();
+  }
 }
 
 /// Determines different page navigation.
@@ -108,5 +145,45 @@ enum Navigation {
   lastPage,
 
   /// Navigates to previous page
-  previousPage
+  previousPage,
+}
+
+/// The [PdfColor] extension for [Color].
+extension PdfColorExtension on PdfColor {
+  /// Converts the [PdfColor] to [Color].
+  Color get materialColor => Color.fromRGBO(r, g, b, 1);
+}
+
+/// The [Color] extension.
+extension MaterialColorExtension on Color {
+  /// Converts the [Color] to [PdfColor].
+  PdfColor get pdfColor =>
+      PdfColor((r * 255).round(), (g * 255).round(), (b * 255).round());
+
+  /// Converts the [Color] to a lighter color based on the given factor.
+  Color getLightenColor(double factor) {
+    factor = factor.clamp(-1.0, 1.0);
+
+    double red = r;
+    double green = g;
+    double blue = b;
+
+    if (factor < 0) {
+      factor += 1;
+      red *= factor;
+      green *= factor;
+      blue *= factor;
+    } else {
+      red = (1 - red) * factor + red;
+      green = (1 - green) * factor + green;
+      blue = (1 - blue) * factor + blue;
+    }
+
+    return Color.fromRGBO(
+      (red * 255).round(),
+      (green * 255).round(),
+      (blue * 255).round(),
+      a,
+    );
+  }
 }

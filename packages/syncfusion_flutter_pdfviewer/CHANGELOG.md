@@ -1,3 +1,370 @@
+## [29.1.40] - 04/29/2025
+ 
+**General**
+ 
+* The minimum Dart version has been updated to 3.7.
+
+**Bugs**
+
+* Now, the page remains locked in view when zoomed in, preventing unexpected navigation to a previous page when scrolling to the top or left edge in single layout mode.
+
+## [29.1.33] - 03/25/2025
+
+**General**
+
+*  The compatible version of our Flutter PDF Viewer widget has been updated to Flutter SDK 3.29.0.
+*  The Syncfusion<sup>&reg;</sup> Flutter PDF Viewer example sample have been updated to support [kotlin build scripts](https://docs.flutter.dev/release/breaking-changes/flutter-gradle-plugin-apply) in Android platform.
+*  Provided support for [Swift package manager](https://docs.flutter.dev/packages-and-plugins/swift-package-manager/for-app-developers) in iOS and macOS platforms.
+
+**Features**
+
+* Provided support to load PDF documents from any source using the unified `SfPdfViewer.new` constructor.
+* Now, scrollbars will be displayed for single-page documents on desktop platforms.
+* Now, scrollbars will be displayed in Single Page Layout mode on desktop platforms.
+
+## [28.2.7] - 02/25/2025
+
+**General**
+
+* The minimum Dart version of our Flutter widgets has been updated to 3.4 from 3.3.
+* Upgraded the `intl` package to the latest version 0.20.0.
+
+**Bugs**
+
+* Now, the scroll offest value will be accurate when the `SfPdfViewer` widget is used in Single page layout mode.
+
+## [28.2.5] - 02/11/2025
+
+* Now, the application no longer crashes when loading a single-page document created using the `syncfusion_flutter_pdf` library on specific iOS devices.
+
+## [28.1.39] - 01/14/2025
+
+**Bugs**
+
+* Now, the PDF document loads properly when using newer versions of the pdf.js library on the web platform.
+* Now, the PDF document with invalid annotation bounds will be loaded properly in the `SfPdfViewer` widget.
+
+## [28.1.38] - 01/07/2024
+
+**General**
+
+* Upgraded the [`device_info_plus`](https://pub.dev/packages/device_info_plus) package to the latest version `11.0.0`.
+
+## [27.2.5] - 12/03/2024
+
+**Bugs**
+
+* Now, 'tel' links in PDF documents open properly in the `SfPdfViewer` widget.
+* Now, the browser's built-in context menu is only disabled in routes with the `SfPdfViewer` widget.
+
+## [26.2.14] - 09/10/2024
+
+**General**
+
+* The compatible version of our Flutter PDF Viewer widget has been updated to Flutter SDK 3.24.0.
+
+## [26.2.8] - 08/06/2024
+
+**Bugs**
+
+* Now, the second page is rendered properly when loading a two-page PDF document in the `SfPdfViewer` widget on the Android platform.
+
+## [26.2.7] - 07/30/2024
+
+**Bugs**
+
+* Now, the multi-line textbox form field will not lose focus as soon as it is focused.
+
+## [26.2.4] - 07/24/2024
+
+**Features**
+
+* Provided text alignment support for form fields in PDF documents.
+
+## [26.1.42] - 07/16/2024
+
+**Bugs**
+
+* Now, the `SfPdfViewer` will not crash unexpectedly when loading PDF documents while the device is in landscape orientation.
+* Improved the performance of the `SfPdfViewer` widget when loading PDF documents with a large number of form fields.
+
+**Features**
+
+* Provided support to add, remove, modify, and save sticky note annotations in PDF files.
+
+**General**
+
+* Upgraded the `device_info_plus` package to the latest version 10.1.0.
+
+## [26.1.41] - 07/09/2024
+
+**Bugs**
+
+* Now, the soft keyboard will not hide immediately when focusing on the text form field in the `SfPdfViewer` widget if `Scaffold.resizeToAvoidBottomInset` is set to false.
+
+## [26.1.40] - 07/02/2024
+
+**Bugs**
+
+* Now, the PDF document with invalid annotation bounds will be loaded properly in the `SfPdfViewer` widget.
+
+**General**
+
+* Updated the 'js' package version constraints to '>=0.6.3 <0.8.0' in the `syncfusion_pdfviewer_web` package.
+
+## [26.1.39] - 06/25/2024
+
+**Bugs**
+
+* Now, the copied text will correctly match the selected Right-to-Left (RTL) text in the `SfPdfViewer` widget.
+
+## [26.1.35] - 06/11/2024
+
+**Features**
+
+* Now, the pages being rendered will have good quality at the initial zoom level. The rendering performance of pages in the viewer for large documents has also been improved for all platforms. Especially on the web and Android platforms, we have achieved approximately an 80% deduction in the rendering time for a document of 50 MB size.
+* Provided support to scroll right-to-left (RTL) horizontally in the RTL layout. This will help you accommodate languages that are read from right to left for better continuity in reading.
+* Provided support to customize the visibility of the built-in text selection menu. This can help users design their own customized text selection menu.
+
+## [25.2.6] - 05/28/2024
+
+**Bugs**
+
+* Now, the soft keyboard will not hide immediately when focusing on the text form field in a particular PDF document.
+* Now, the `SfPdfViewer` will not crash unexpectedly when loading a particular PDF document on the iOS platform.
+
+## [25.2.5] - 05/21/2024
+
+**Bugs**
+
+* Now, the page number will be retained when switching the page layout from single page to continuous page layout in the `SfPdfViewer` widget.
+
+## [25.2.3] - 05/08/2024
+
+**Features**
+
+* Provided support for letter spacing in the textbox form fields.
+
+## [25.1.41] - 04/23/2024
+
+**Bugs**
+
+* Now, the page will be rendered properly after switching the device orientation from portrait to landscape or vice versa in the `SfPdfViewer` widget.
+
+## [25.1.38] - 04/02/2024
+
+**Bugs**
+
+* Now, the `SfPdfViewer` will not crash unexpectedly due to the high memory usage when loading and unloading the large and high-resolution PDF documents frequently.
+
+## [25.1.35] - 03/15/2024
+
+**Features**
+
+* Provided support for loading the PDF document on a specified page.
+* Provided support for active viewport rendering. That is, at a higher zoom level, this feature renders only the part of the PDF document that is visible on the screen, ignoring the parts that are outside the viewport.
+* Provided support to undo and redo the data filled in PDF forms.
+
+**General**
+
+* Provided the Material 3 theme support.
+
+## [24.2.9] - 03/05/2024
+
+**General**
+
+* Upgraded the `js` package to the latest version 0.7.1 in the `syncfusion_pdfviewer_web` package.
+
+## [24.2.8] - 02/27/2024
+
+**Bugs**
+
+* Now the page will be centered while zooming out in landscape orientation with pinch gestures in Single Page layout mode.
+
+## [24.2.7] - 02/20/2024
+
+**Features**
+
+* Provided support to check and uncheck the grouped checkbox form fields that behave like a radio button in the PDF document.
+
+## [24.2.5] - 02/13/2024
+
+**Bugs**
+
+* Now, the `SfPdfViewer` will not crash unexpectedly when closing the application before the PDF document is loaded on iOS and macOS platforms.
+
+## [24.1.47] - 01/23/2024
+
+**Bugs**
+
+* Now, when viewing a single-page document in a continuous page layout, the user can fully zoom out of the document with a pinch gesture in the `SfPdfViewer` widget.
+
+## [24.1.46] - 01/17/2024
+
+**Bugs**
+
+* Now, the application will not crash when switching the PDF document in the `SfPdfViewer` widget on the Windows platform.
+
+**General**
+
+* Upgraded the `intl` package to the latest version 0.19.0.
+
+## [24.1.45] - 01/09/2024
+
+**Bugs**
+
+* Now, the `SfPdfViewer` will render the PDF pages considering the crop box value in iOS.
+* Now, when using German locale, the 'Open' label in the hyperlink and password dialogs will be translated properly.
+
+## [24.1.41] - 18/12/2023
+
+**Bugs**
+
+* Now, the `SfPdfViewer` will be properly deployed without namespace errors when built with a Gradle version greater than 8.x.
+
+**Features**
+
+* Provided support to add, remove, modify, and save text markup annotations in PDF files. The available text markups are highlight, underline, strikethrough, and squiggly.
+* Provided support to scroll vertically in single-page layout mode.
+
+## [23.2.6] - 11/28/2023 
+
+**Bugs**
+
+* Now, the `SfPdfViewer` will render the PDF pages considering the crop box value in iOS.
+* Now, the position is maintained in the zoomed document when performing panning in `SfPdfViewer`.
+* Now, the focus of the text form field is maintained when scrolling is performed in `SfPdfViewer`.
+
+**Features**
+
+* Enhanced the user experience of the scroll head by increasing its size in `SfPdfViewer`.
+
+## [23.2.4] - 11/20/2023
+
+**Bugs**
+
+* Now, the `SfPdfViewer` will trigger the `onTap` callback when there is a slight touch slop too.
+
+## [23.1.44] - 11/07/2023
+
+**Bugs**
+
+* Now, the `SfPdfViewer` does not trigger the `onTap` callback when performing a double-tap zoom.
+* Now, in the single-page layout mode, the page position is maintained properly in landscape orientation when performing zoom in a specific PDF document.
+
+**Features**
+
+* Support to render the background color in the form fields has been provided.
+
+## [23.1.42] - 10/24/2023
+
+**Bugs**
+
+* Now, the form fields are properly rendered in a document with a different page size in `SfPdfViewer`.
+
+**Features**
+
+* Provided support to render **digital signatures** in existing PDF documents in a non-interactive way to avoid data loss while viewing. The document's integrity is preserved if no editing operation is performed.
+
+## [23.1.40] - 10/10/2023
+
+**Bugs**
+
+* Now, the default selection of the first item in the radio button form fields has been removed.
+
+**Features**
+
+* Provided the support to restrict the text form field editing based on its maximum length.
+
+## [23.1.38] - 09/26/2023
+
+**Bugs**
+
+* Now, the PDF page content will be clear on iOS when zoomed in.
+
+**Features**
+
+* Provided support for the `continueImportOnError` option in the `importFormData` method.
+
+## [23.1.36] - 09/15/2023
+
+**Bugs**
+
+* Now, the `pagePosition` property in `PdfGestureDetails` will return the tapped position in the PDF page coordinates.
+
+## [22.2.10] - 08/22/2023
+
+**Bugs**
+
+* Now, the `AlertDialog` or `DatePicker` dialog is properly closed when invoked in the `onFormFieldFocusChange` callback.
+
+**Features**
+
+* Enhanced the user experience of the combo box form field by switching the `PopupMenuButton` with a `DropdownButton` widget in `SfPdfViewer`.
+* Support for localization for the texts in the built-in signature pad dialog has been provided.
+
+## [22.2.5] - 07/27/2023
+
+**Bugs**
+
+* The multi-line text form fields will now have the proper font size.
+
+**Features**
+
+* Support for filling out the list box form field has been provided.
+* Support for filling or editing form fields programmatically has been provided.
+* Provided focus change and value change callback support for form fields.
+* Provided the support for the `onTap` callback to retrieve the page number, position, and page position when tapping on the `SfPdfViewer`.
+
+## [22.1.34] - 06/21/2023
+
+**Features**
+
+* Support for filling out the form fields, such as text boxes, dropdown menus, checkboxes, radio buttons, and signatures, has been provided. It also offers additional features, such as the ability to save, export, and import the form data.
+* Support for loading the pages with the width fitted on the Windows and Web platforms has been provided.
+
+**General**
+
+* Upgraded the `http` package to the latest version 1.0.0.
+* Upgraded the `device_info_plus` package to the latest version 9.0.2.
+
+## [21.2.4] - 05/09/2023
+
+**Bugs**
+
+* Now, the `SfPdfViewer` does not execute the `onDocumentLoaded` callback before the Pdf document loads.
+
+## [21.2.3] - 05/03/2023
+
+**Features**
+
+* Support for customising the visibility of the page loading busy indicator has been provided.
+
+## [21.1.38] - 04/04/2023
+
+**Bugs**
+
+* Now, the `SfPdfViewer` does not cause excessive widget rebuilding when no actions are performed on the PDF.
+
+## [20.4.55] - 03/21/2023
+
+**Bugs**
+
+* Now, the `SfPdfViewer` does not cause text fields to lose focus when scrolling is active on an Android tablet or the iPad.
+* Now, the keyboard shortcut navigation on the web platform works properly.
+
+**Features**
+
+* Support to set and adjust the maximum zoom level has been provided.
+
+## [20.4.51] - 02/21/2022
+
+* The password dialog is now displayed properly in the `SfPdfViewer` when localized.
+
+## [20.4.43] - 01/10/2022
+
+* Support for scrolling via remote button clicks on Android TV has been provided.
+
 ## [20.3.58] - 11/22/2022
 
 **Bugs**
@@ -203,7 +570,7 @@ The following platform packages have been renamed. No changes in your pubspec.ya
 
 **Features**
 
-* Now, the temporary PDF file created by Syncfusion Flutter SfPdfViewer will be inaccessible.
+* Now, the temporary PDF file created by Syncfusion<sup>&reg;</sup> Flutter SfPdfViewer will be inaccessible.
 
 ## [18.3.35-beta] - 10/01/2020
 

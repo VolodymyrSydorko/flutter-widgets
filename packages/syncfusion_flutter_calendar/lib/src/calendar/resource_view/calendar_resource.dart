@@ -82,11 +82,12 @@ class CalendarResource with Diagnosticable {
   ///
   /// An object that contains properties to hold the detailed information
   /// about the data, which will be rendered in [SfCalendar].
-  CalendarResource(
-      {this.displayName = '',
-      required this.id,
-      this.image,
-      this.color = Colors.lightBlue});
+  CalendarResource({
+    this.displayName = '',
+    required this.id,
+    this.image,
+    this.color = Colors.lightBlue,
+  });
 
   /// The name which displayed on the [CalendarResource] view of [SfCalendar].
   ///
@@ -243,7 +244,7 @@ class CalendarResource with Diagnosticable {
   final ImageProvider? image;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }

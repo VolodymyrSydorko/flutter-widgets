@@ -4,7 +4,7 @@ enum PdfInteractionMode {
   selection,
 
   /// Enables the panning mode in a desktop browser to move or scroll through the pages using mouse dragging.
-  pan
+  pan,
 }
 
 /// Represents different scrolling direction.
@@ -13,7 +13,7 @@ enum PdfScrollDirection {
   vertical,
 
   /// Pages will be scrolled left and right.
-  horizontal
+  horizontal,
 }
 
 /// Represents different pdf layout mode.
@@ -22,5 +22,59 @@ enum PdfPageLayoutMode {
   continuous,
 
   /// Page by page transition of pages.
-  single
+  single,
+}
+
+/// Represents different flattening option.
+enum PdfFlattenOption {
+  /// Do not flatten any form fields or annotations .
+  none,
+
+  /// Flatten all the form fields.
+  formFields,
+}
+
+/// Enumerates the values that represent the type of annotation that should be drawn using UI interaction on the PDF pages.
+enum PdfAnnotationMode {
+  /// None
+  none,
+
+  /// Highlight
+  highlight,
+
+  /// Underline
+  underline,
+
+  /// Strikethrough
+  strikethrough,
+
+  /// Squiggly
+  squiggly,
+
+  /// Sticky Note
+  stickyNote,
+}
+
+/// Enumerates the values that represents different types of icons for a sticky note annotation.
+enum PdfStickyNoteIcon {
+  /// Comment
+  comment,
+
+  /// Key
+  key,
+
+  /// Note
+  note,
+
+  /// Help
+  help,
+
+  /// New Paragraph
+  newParagraph,
+
+  /// Paragraph
+  paragraph,
+
+  /// Insert
+  insert,
 }
