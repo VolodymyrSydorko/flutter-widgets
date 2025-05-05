@@ -1576,7 +1576,7 @@ class AppointmentHelper {
                   calendarTimeZone,
                 )
                 : item.endTime;
-        _updateTimeForInvalidEndTime(item, calendarTimeZone);
+        //_updateTimeForInvalidEndTime(item, calendarTimeZone);
         calendarAppointmentCollection.add(item);
 
         item.isSpanned =
@@ -1666,7 +1666,7 @@ class AppointmentHelper {
               calendarTimeZone,
             )
             : app.endTime;
-    _updateTimeForInvalidEndTime(app, calendarTimeZone);
+    //_updateTimeForInvalidEndTime(app, calendarTimeZone);
     return app;
   }
 
