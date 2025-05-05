@@ -3768,8 +3768,9 @@ class SfPdfViewerState extends State<SfPdfViewer> with WidgetsBindingObserver {
                       )
                       .map(
                         (PdfWidget widget) => widget.toPositioned(
-                          calculatedSize,
-                          Size(_originalWidth![index], _originalHeight![index]),
+                          context: context,
+                          pageSize: calculatedSize,
+                          pdfPageSizeInPt: _document!.pages[index].size,
                         ),
                       );
 
@@ -7751,6 +7752,7 @@ class PdfWidget {
   const PdfWidget({
     required this.pageNumber,
     required this.bounds,
+    this.webZoom = 1,
     this.ignoreBoundsSize = false,
     required this.child,
   });
@@ -7761,6 +7763,9 @@ class PdfWidget {
   ///bounds
   final Rect bounds;
 
+  ///Web zoom
+  final double webZoom;
+
   ///Will use real widget size
   final bool ignoreBoundsSize;
 
@@ -7768,27 +7773,39 @@ class PdfWidget {
   final Widget child;
 
   ///convert toPositioned
-  Positioned toPositioned(Size screenSize, Size pdfSize) {
-    final double k = (790 * pdfSize.height) / (1024 * pdfSize.width);
+  Positioned toPositioned({
+    required BuildContext context,
+    required Size pageSize,
+    required Size pdfPageSizeInPt,
+  }) {
+    const double targetPtWidth = 612;
+    const double webMmPerPt = 0.3431372549;
+    const double pxPerMm = 3.78;
 
-    final double hCoef = screenSize.height / (1024 * k);
-    final double wCoef = screenSize.width / 790;
-
-    if (ignoreBoundsSize) {
-      return Positioned(
-        left: bounds.left * wCoef,
-        top: bounds.top * hCoef,
-        child: child,
-      );
-    }
-
-    final Rect rect = Rect.fromLTWH(
-      bounds.left * wCoef,
-      bounds.top * hCoef,
-      bounds.width * wCoef,
-      bounds.height * hCoef,
+    final Size normalizedPdfPageSizeInPt = Size(
+      targetPtWidth,
+      pdfPageSizeInPt.height * (targetPtWidth / pdfPageSizeInPt.width),
     );
 
-    return Positioned.fromRect(rect: rect, child: child);
+    final Size pdfPageSizeInMm = normalizedPdfPageSizeInPt * webMmPerPt;
+    final Size webPdfPageSize = pdfPageSizeInMm * webZoom * pxPerMm;
+
+    final double widthScalingFactor = pageSize.width / webPdfPageSize.width;
+    final double heightScalingFactor = pageSize.height / webPdfPageSize.height;
+
+    final double top = bounds.top * widthScalingFactor;
+    final double left = bounds.left * heightScalingFactor;
+    final double? width =
+        ignoreBoundsSize ? null : bounds.width * widthScalingFactor;
+    final double? height =
+        ignoreBoundsSize ? null : bounds.height * heightScalingFactor;
+
+    return Positioned(
+      top: top,
+      left: left,
+      width: width,
+      height: height,
+      child: child,
+    );
   }
 }
