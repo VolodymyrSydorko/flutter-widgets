@@ -197,6 +197,7 @@ class SfCalendar extends StatefulWidget {
     DateTime? maxDate,
     this.appointmentTextStyle = const TextStyle(
         color: Colors.white, fontSize: -1, fontWeight: FontWeight.w500),
+    this.filterButton,
     this.showNavigationArrow = false,
     this.showDatePickerButton = false,
     this.showTodayButton = false,
@@ -1204,6 +1205,25 @@ class SfCalendar extends StatefulWidget {
   ///
   /// ```
   final Color? backgroundColor;
+
+  /// The widget to display on the filter button in the header view of
+  /// [SfCalendar].
+  ///
+  /// Defaults to null.
+  ///
+  /// ```dart
+  ///Widget build(BuildContext context) {
+  ///    return Container(
+  ///      child: SfCalendar(
+  ///        view: CalendarView.schedule,
+  ///        filterButton: Container(
+  ///          child: Icon(Icons.filter_list),
+  ///        ),
+  ///      ),
+  ///    );
+  ///  }
+  /// ```
+  final Widget? filterButton;
 
   /// Displays the navigation arrows on the header view of [SfCalendar].
   ///
@@ -7097,6 +7117,7 @@ class _SfCalendarState extends State<SfCalendar>
                     widget.headerHeight,
                     widget.timeSlotViewSettings.nonWorkingDays,
                     widget.monthViewSettings.navigationDirection,
+                    widget.filterButton,
                     widget.showDatePickerButton,
                     widget.showTodayButton,
                     _showHeader,
@@ -7940,6 +7961,7 @@ class _SfCalendarState extends State<SfCalendar>
                   widget.headerHeight,
                   widget.timeSlotViewSettings.nonWorkingDays,
                   widget.monthViewSettings.navigationDirection,
+                  widget.filterButton,
                   widget.showDatePickerButton,
                   widget.showTodayButton,
                   _showHeader,
@@ -8595,6 +8617,7 @@ class _SfCalendarState extends State<SfCalendar>
                 widget.headerHeight,
                 widget.timeSlotViewSettings.nonWorkingDays,
                 widget.monthViewSettings.navigationDirection,
+                widget.filterButton,
                 widget.showDatePickerButton,
                 widget.showTodayButton,
                 _showHeader,
@@ -9391,6 +9414,7 @@ class _CalendarHeaderView extends StatefulWidget {
       this.height,
       this.nonWorkingDays,
       this.navigationDirection,
+      this.filterButton,
       this.showDatePickerButton,
       this.showTodayButton,
       this.isPickerShown,
@@ -9437,6 +9461,7 @@ class _CalendarHeaderView extends StatefulWidget {
   final VoidCallback removePicker;
   final _CalendarHeaderCallback headerTapCallback;
   final _CalendarHeaderCallback headerLongPressCallback;
+  final Widget? filterButton;
   final bool showDatePickerButton;
   final bool showTodayButton;
   final SfLocalizations localizations;
@@ -10180,6 +10205,7 @@ class _CalendarHeaderViewState extends State<_CalendarHeaderView> {
         rowChildren = <Widget>[
           headerText,
           weekNumberWidget,
+          if (widget.filterButton != null) widget.filterButton!,
           todayIcon,
           calendarViewIcon,
           leftArrow,
@@ -10191,6 +10217,7 @@ class _CalendarHeaderViewState extends State<_CalendarHeaderView> {
           rightArrow,
           headerText,
           weekNumberWidget,
+          if (widget.filterButton != null) widget.filterButton!,
           todayIcon,
           dividerWidget,
         ];
